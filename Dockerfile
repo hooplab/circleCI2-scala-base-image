@@ -4,7 +4,7 @@ MAINTAINER Halvor Granskogen Bjørnstad <halvor@hoopla.no>
 
 # general utils
 RUN apk update && apk upgrade && \
-    apk add curl wget bash tree
+    apk add --no-cache curl wget bash tree
 
 # Install sbt
 ENV SBT_VERSION 0.13.11
@@ -15,7 +15,7 @@ RUN curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SB
 
 # Install python2.7 and upgrade python-pip
 RUN apk update && apk upgrade && \
-    apk add python && \
+    apk add --no-cache python && \
     wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py && \
     python /tmp/get-pip.py
 
@@ -28,4 +28,4 @@ RUN pip install sh && \
 
 # Install Java.
 RUN apk update && apk upgrade && \
-    apk add openjdk8
+    apk add --no-cache openjdk8
