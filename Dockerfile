@@ -1,7 +1,6 @@
 FROM docker:17.05.0-ce-git
 MAINTAINER Halvor Granskogen Bjørnstad <halvor@hoopla.no>
 
-
 # general utils
 RUN apk update && apk upgrade && \
     apk add --no-cache curl wget bash tree
@@ -39,3 +38,6 @@ RUN apk update && apk upgrade && \
 
 RUN apk update && apk upgrade && \
     apk add --no-cache gzip tar
+
+RUN apk update && apk upgrade && \
+    apk add --no-cache postgresql
