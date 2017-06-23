@@ -1,4 +1,4 @@
-FROM docker:17.05.0-ce-git
+FROM docker:17.06.0-ce-git
 MAINTAINER Halvor Granskogen Bjørnstad <halvor@hoopla.no>
 
 # general utils
@@ -40,4 +40,4 @@ RUN apk update && apk upgrade && \
     apk add --no-cache gzip tar
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache postgresql
+    apk add --no-cache postgresql postgresql-contrib postgresql-plpython2
