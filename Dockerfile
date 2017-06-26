@@ -51,3 +51,7 @@ RUN mkdir -p /run/postgresql && \
     su - postgres -c 'createuser -s hoopla_test' && \
     su - postgres -c 'createdb -O hoopla_test hoopla_test' &&\
     su - postgres -c 'pg_ctl stop -w -D /var/lib/postgresql/data'
+
+
+# install awscli
+RUN pip install awscli
