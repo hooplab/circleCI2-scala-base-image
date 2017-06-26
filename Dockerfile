@@ -49,4 +49,5 @@ RUN mkdir -p /run/postgresql && \
     su - postgres -c 'initdb -D /var/lib/postgresql/data' && \
     su - postgres -c 'pg_ctl start -w -D /var/lib/postgresql/data' && \
     su - postgres -c 'createuser -s hoopla_test' && \
-    su - postgres -c 'createdb -O hoopla_test hoopla_test'
+    su - postgres -c 'createdb -O hoopla_test hoopla_test' &&\
+    su - postgres -c 'pg_ctl stop -w -D /var/lib/postgresql/data'
