@@ -39,19 +39,5 @@ RUN apk update && apk upgrade && \
 RUN apk update && apk upgrade && \
     apk add --no-cache gzip tar
 
-# postgres: install
-RUN apk update && apk upgrade && \
-    apk add --no-cache postgresql postgresql-contrib postgresql-plpython2
-
-# postgres prepare database
-RUN mkdir -p /run/postgresql && \
-    chown -R postgres:postgres /run/postgresql/ && \
-    su - postgres -c 'initdb -D /var/lib/postgresql/data' && \
-    su - postgres -c 'pg_ctl start -w -D /var/lib/postgresql/data' && \
-    su - postgres -c 'createuser -s hoopla_test' && \
-    su - postgres -c 'createdb -O hoopla_test hoopla_test' &&\
-    su - postgres -c 'pg_ctl stop -w -D /var/lib/postgresql/data'
-
-
 # install awscli
 RUN pip install awscli
